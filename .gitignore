@@ -42,3 +42,4 @@ livestatus.log
 .mr.developer.cfg
 .project
 .pydevproject
+.idea/
