@@ -6,6 +6,8 @@ from django.views import generic
 
 from .models import Question, Choice
 
+from django.utils import timezone
+
 
 # Create your views here.
 
@@ -16,7 +18,8 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
 
-        return Question.objects.order_by('-pub_date')[:5]
+        return Question.objects.filter(pub_date__lte = timezone.now()
+        	).order_by('-pub_date')[:5]
 
 class DetailView(generic.DetailView):
     model = Question
